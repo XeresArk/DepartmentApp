@@ -1,7 +1,11 @@
 package com.departmentapp.controller;
 
 import com.departmentapp.service.DepartmentEmployeeService;
+import com.departmentapp.entities.EmployeeEntity;
 import com.departmentapp.service.DepartmentEmployeeAdminService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,6 +35,11 @@ public class DepartmentEmployeeController {
     @GetMapping("/summary")
     public String getEmployeeSummary() {
         return departmentEmployeeService.getEmployeeSummary();
+    }
+
+    @GetMapping("/findAllEmployees")
+    public List<EmployeeEntity> findAllEmployees() {
+        return departmentEmployeeService.findAllEmployees();
     }
 
     @GetMapping("/promote/{id}")
